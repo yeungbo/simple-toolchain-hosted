@@ -12,9 +12,7 @@ stages:
     type: builder
 - name: REGISTRY
   inputs:
-  - type: job
-    stage: BUILD
-    job: Build
+  - type: None
   triggers:
   - type: stage
   properties:
