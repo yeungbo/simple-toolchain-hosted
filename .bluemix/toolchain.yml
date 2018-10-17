@@ -17,7 +17,7 @@ template:
     git branch: >-
       [master](https://github.com/yeungbo/simple-toolchain-hosted/tree/master)
 toolchain:
-  name: 'register-service-with-istis-{{timestamp}}'
+  name: 'register-service-with-istio-{{timestamp}}'
   template:
     getting_started:
       $ref: "#/messages/template.gettingStarted"

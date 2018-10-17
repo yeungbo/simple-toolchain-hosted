@@ -1,16 +1,14 @@
 ---
 stages:
 - name: BUILD
+  inputs:
+  - type: git
+    branch: master
+    service: ${SAMPLE_REPO}
   jobs:
   - name: Build
     type: builder
 - name: REGISTRY
-  inputs:
-  - type: job
-    stage: BUILD
-    job: Build
-  triggers:
-  - type: stage
   properties:
   - name: CF_APP_NAME
     value: undefined
