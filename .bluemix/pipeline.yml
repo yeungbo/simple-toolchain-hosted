@@ -6,7 +6,7 @@ stages:
     branch: master
     service: ${SAMPLE_REPO}
   triggers:
-  - type: commit
+  - type: manual
   jobs:
   - name: Build
     type: builder
