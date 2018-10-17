@@ -38,21 +38,6 @@
             },
             "type": "string"
         },
-         "registry-namespace": {
-            "description": {
-              "$ref": "#/messages/deploy.registryDescription"
-            },
-            "type": "string",
-            "enum": [],
-            "pattern": "^[a-z0-9][a-z0-9_-]{3,29}$"
-        },	    
-        "prod-cluster-name": {
-            "description": {
-              "$ref": "#/messages/deploy.clusterDescription"
-            },
-            "type": "string",
-            "pattern": "\\S"
-        },
         "prod-app-name": {
             "description": {
                 "$ref": "#/messages/deploy.appDescription"
@@ -66,9 +51,7 @@
         "prod-organization",
         "prod-space",
         "prod-app-name",
-        "api-key",
-        "registry-namespace",
-        "prod-cluster-name"
+        "api-key"
     ],
     "form": [
         {
@@ -92,27 +75,46 @@
 	        "key": "api-key"
         },
         {
-          "type": "select",
-          "key": "prod-region",
-	        "readonly": true,
-           "title": {
-            "$ref": "#/messages/region"
-          }
-        },{
-          "key": "prod-cluster-name",
-	        "readonly": false,
-          "type": "select",
-          "title": {
-              "$ref": "#/messages/deploy.clusterName"
-          }
-        },{
-          "type": "select",
-          "readonly": false,
-          "title": {
-            "$ref": "#/messages/deploy.imageRegistryNamespace"
-          },
-          "key": "registry-namespace"
-          }
-        ]
-        
+            "type": "table",
+            "columnCount": 3,
+            "widths": [
+                "33%",
+                "33%",
+                "33%"
+            ],
+            "items": [
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/region"
+                    }
+                },
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/organization"
+                    }
+                },
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/space"
+                    }
+                },
+                {
+                    "type": "select",
+                    "key": "prod-region"
+                },
+                {
+                    "type": "select",
+                    "key": "prod-organization"
+                },
+                {
+                    "type": "select",
+                    "key": "prod-space",
+                    "readonly": false
+                }
+            ]
+        }
+    ]
 }
